@@ -33,7 +33,7 @@ class MyInventory
 
         // create an array of your ItemData struct
 
-        ItemData[] itemprop = new ItemData[6];
+        ItemData[] itemprop = new ItemData[100];
         
 
         // use a never ending loop that shows the user what options they can select 
@@ -100,10 +100,9 @@ class MyInventory
                         Console.WriteLine();
 
 
-                        Console.Write("Please enter value of an item: ");
-                        string strvalueperitem = Console.ReadLine();
-                        double valuepriceperitem = double.Parse(strvalueperitem);
-                        itemprop[numberOfItems].dblValueOfItem = valuepriceperitem;
+                        itemprop[numberOfItems].dblValueOfItem = itemprop[numberOfItems].iQuantityOnHand * itemprop[numberOfItems].dblPricePerItem;
+
+                        
                         Console.WriteLine();
 
 
@@ -160,11 +159,8 @@ class MyInventory
                                 itemprop[x].dblOurCostPerItem = costpriceperitem;
                                 Console.WriteLine();
 
+                                itemprop[x].dblValueOfItem = itemprop[x].iQuantityOnHand * itemprop[x].dblPricePerItem;
 
-                                Console.Write("Please enter value of an item: ");
-                                string strvalueperitem = Console.ReadLine();
-                                double valuepriceperitem = double.Parse(strvalueperitem);
-                                itemprop[x].dblValueOfItem = valuepriceperitem;
                                 Console.WriteLine();
 
                                 x++;
@@ -234,10 +230,10 @@ class MyInventory
                             Console.Write("{0,4}.  ", x);
                             Console.Write("{0,5}  ",itemprop[x].itemIDNo);
                             Console.Write("{0,-20}  ", itemprop[x].sDescription);
-                            Console.Write("{0,4}$  ",itemprop[x].dblPricePerItem);
-                            Console.Write("{0,3}  ", itemprop[x].iQuantityOnHand);
-                            Console.Write("{0,4}$  ", itemprop[x].dblOurCostPerItem);
-                            Console.Write("{0,5}$  ", itemprop[x].dblValueOfItem);
+                            Console.Write("{0,4}$ ",itemprop[x].dblPricePerItem);
+                            Console.Write("{0,3} ", itemprop[x].iQuantityOnHand);
+                            Console.Write("{0,4}$ ", itemprop[x].dblOurCostPerItem);
+                            Console.Write("{0,5}$ ", itemprop[x].dblValueOfItem);
                             Console.WriteLine();
 
                         }
